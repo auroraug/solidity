@@ -1,4 +1,3 @@
-```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -20,9 +19,15 @@ mapping (address => bool) mintStatus;
 
     uint256 public  max_supply = 10000;
 
+    string public  uriIpfs = "";
     Counters.Counter private _tokenIdCounter;
 
     constructor() ERC721("SoulBoudToken", "SBT") {}
+
+    function changeuriIpfs(string memory _uri)public onlyOwner{
+        uriIpfs = _uri;
+        max_supply = 10000;
+    }
 
     function safeMint() public {
         require(mintStatus[msg.sender] == true,"You can't mint the SBT");
@@ -30,9 +35,7 @@ mapping (address => bool) mintStatus;
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
         _safeMint(msg.sender, tokenId);
-        _setTokenURI(tokenId, "ipfs://QmeDBYHYLJJGhcDzYRuKvwXEa3KtrgC4CiWXYMsn5cjTMw");
+        _setTokenURI(tokenId, uriIpfs);
         max_supply -= 1;
     }
 }
-
-```
