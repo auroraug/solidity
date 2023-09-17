@@ -69,7 +69,7 @@ contract Factory{
 
     0xFF：一个常数，避免和CREATE冲突
     CreatorAddress: 调用 Create2 的当前合约（创建合约）地址。
-    salt（盐）：一个创建者指定的 uint256 类型的值，的主要目的是用来影响新创建的合约的地址。
+    salt（盐）：一个创建者指定的 bytes32 类型的值，的主要目的是用来影响新创建的合约的地址。
     initcode: 新合约的初始字节码（合约的Creation Code和构造函数的参数）。
     */
 
