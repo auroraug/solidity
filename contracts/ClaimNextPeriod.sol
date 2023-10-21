@@ -6,9 +6,9 @@ contract ClaimNextPeriod{
 	uint256 public startTime; // 1697414400
     uint256 public endTime; // 1704067200
     uint256 public period; // 86400
-// 1697854497
-// 1697846400  getCurrentEpoch() = 5，getCurrentEpoch() * period + startTime < lastClaimedTime[msg.sender]
-// 1697932800  getCurrentEpoch() = 6，getCurrentEpoch() * period + startTime > lastClaimedTime[msg.sender]
+// lastClaimedTime[msg.sender] = 1697854497
+// getCurrentEpoch() = 5，getCurrentEpoch() * period + startTime : 1697846400 < lastClaimedTime[msg.sender]
+// getCurrentEpoch() = 6，getCurrentEpoch() * period + startTime : 1697932800 > lastClaimedTime[msg.sender]
 
     mapping(address => uint256) public lastClaimedTime;
 
