@@ -65,7 +65,7 @@
 
 2. ## Provider.getLogs() method  (ethers.js version 6)
 
-   - filter
+   - filter (sample)
 
      ```js
      const inputfilter = {
